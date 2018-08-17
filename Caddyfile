@@ -1,0 +1,12 @@
+:80 {
+  cors / {
+      origin            *
+      methods           GET
+      allow_credentials true
+      max_age           3600
+      allowed_headers   Authorization,Accept
+      exposed_headers   X-Cache,X-Cache-Grace,X-Cache-Hits,X-Served-By,X-DNS-Prefetch-Control,Etag
+  }
+
+  proxy / {%UPSTREAM%}
+}
